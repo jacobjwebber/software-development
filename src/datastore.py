@@ -21,5 +21,7 @@ def get_band(bandname):
 	"""
 	Request a band from persistent storage.
 	"""
+	if os.path.isdir(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands")):
+		bands = os.listdir(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands"))
 	loadedband = pickle.load(open(os.path.join(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands"),band), "rb"))
 	return loadedband
