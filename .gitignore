@@ -5,3 +5,6 @@
 #Ignore persistent storage
 
 */bands/*
+
+#compiled files
+*.pyc
