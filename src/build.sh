@@ -5,4 +5,7 @@
 virtualenv env
 
 env/bin/pip install -r requirements.txt
+
+/env/bin/yapf *.py
+env/bin/nosetests
 env/bin/python framework.py

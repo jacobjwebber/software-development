@@ -7,21 +7,36 @@ The implementation may very well change as development continues but the api can
 remain the same.
 """
 
+banddir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands") 
+
 def persist_band(band):
 	"""
 	This method allows a band to be persisted using the pickle dump routine.
 	"""
-	if os.path.isdir(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands")):
-		bands = os.listdir(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands"))
-
 	bandname = band['Name']
-	pickle.dump(band, open(os.path.join(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands"),bandname), "wb"))
+	bandfile = open(os.path.join(banddir,bandname),'wb')
+	pickle.dump(band, bandfile)
+	bandfile.close
 
 def get_band(bandname):
 	"""
 	Request a band from persistent storage.
 	"""
-	if os.path.isdir(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands")):
-		bands = os.listdir(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands"))
-	loadedband = pickle.load(open(os.path.join(os.path.join(os.path.dirname(os.path.realpath(__file__)), "bands"),band), "rb"))
+	bandfile = open(os.path.join(banddir,bandname), 'rb')
+	loadedband = pickle.load(bandfile)
+	print(loadedband)
+	bandfile.close
 	return loadedband
+
+def get_list_of_bands():
+	if os.path.isdir(banddir):
+		bands = os.listdir(banddir)
+	else:
+		bands = None
+	return bands
+	
+
+def delete_band(band):
+	os.remove(os.path.join(banddir,band))
+	return
+
