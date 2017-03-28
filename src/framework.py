@@ -120,7 +120,7 @@ def edit_given_warband(band):
         capexp = request.form['capexperience']
         createdband = dict()
         createdband['Name'] = bandname
-        createdband['Captain'] = dict(app.wizard['Captain'])
+        createdband['Captain'] = dict(gamerules.wizard['Captain'])
         createdband['Captain']['Specialism'] = capspec
         createdband['Captain']['Skillset'].extend(skills)
         createdband['Captain']['Items'].append(capweap)
@@ -143,7 +143,7 @@ def edit_given_warband(band):
             enshea = request.form['enshealth']
             ensexp = request.form['ensexperience']
             ensweap = request.form['ensweap']
-            createdband['Ensign'] = dict(app.apprentice['Ensign'])
+            createdband['Ensign'] = dict(gamerules.apprentice['Ensign'])
             createdband['Ensign']['Specialism'] = ensspec
             createdband['Ensign']['Skillset'].extend(eskills)
             createdband['Ensign']['Items'].append(ensweap)
