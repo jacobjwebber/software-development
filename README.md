@@ -1,5 +1,6 @@
-# software-development
 [![Build Status](https://travis-ci.org/jacobjwebber/software-development.svg?branch=develop)](https://travis-ci.org/jacobjwebber/software-development)
+
+# software-development
 
 Software development assignment.
 
