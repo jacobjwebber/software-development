@@ -27,6 +27,13 @@ def test_if_stored():
     assert (testband == gotband)
 
 
+def test_if_dict():
+    datastore.persist_band(testband)
+    gotband = datastore.get_band(testband['Name'])
+    datastore.delete_band(testband['Name'])
+    assert (isinstance(gotband, dict))
+
+
 def test_get_list():
     assert (isinstance(datastore.get_list_of_bands(), list))
 

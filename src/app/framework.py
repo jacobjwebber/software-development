@@ -104,7 +104,7 @@ def edit_given_warband(band):
 
     loadedband = datastore.get_band(band)
     if request.method == 'GET':
-        return render_edit_band(band)
+        return render_edit_band(loadedband)
     if request.method == 'POST':
         createdband = gamerules.form_to_band(request.form)
 
@@ -118,7 +118,7 @@ def edit_given_warband(band):
 @app.route('/delete/<band>', methods=['GET'])
 def delete_given_warband(band):
     datastore.delete_band(band)
-    bands = datastore.get_band_list()
+    bands = datastore.get_list_of_bands()
     return render_edit_list(bands)
 
 
