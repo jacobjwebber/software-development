@@ -14,7 +14,7 @@ def persist_band(band):
 	This method allows a band to be persisted using the pickle dump routine.
 	"""
     bandname = band['Name']
-    bandfile = open(os.path.join(banddir, bandname), 'w')
+    bandfile = open(os.path.join(banddir, bandname), 'wb')
     pickle.dump(band, bandfile)
     bandfile.close()
 
@@ -23,7 +23,7 @@ def get_band(bandname):
     """
 	Request a band from persistent storage.
 	"""
-    bandfile = open(os.path.join(banddir, bandname), 'r')
+    bandfile = open(os.path.join(banddir, bandname), 'rb')
     loadedband = pickle.load(bandfile)
     print(loadedband)
     bandfile.close()
