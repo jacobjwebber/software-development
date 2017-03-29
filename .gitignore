@@ -1,0 +1,10 @@
+#Ignore env files
+
+*/env/*
+
+#Ignore persistent storage
+
+*/bands/*
+
+#compiled files
+*.pyc

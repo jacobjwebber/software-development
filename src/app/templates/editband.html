@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ship Crew Editor</title>
+<title>Squad Editor</title>
 <style>
 table, th, td { border: 1px solid black; text-align: left; }
 </style>
@@ -149,6 +149,85 @@ table, th, td { border: 1px solid black; text-align: left; }
    }
    
    function doFormSubmit()
+   {
+     method =  "post"; // Set method to post by default if not specified.
+
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", "/new");
+ 
+
+    /*  bandname = request.form['bandname']
+       capspec = request.form['capspec']
+       ensspec = request.form['ensspec']
+       capskill = request.form['capskill']
+       ensskill = request.form['ensskill']
+       capweap = request.form['capweap']
+       ensweap = request.form['ensweap']
+       troops = json.loads(request.form['troops']) */
+
+    var bandname = document.createElement("input");
+            bandname.setAttribute("type", "hidden");
+            bandname.setAttribute("name", "bandname");
+            bandname.setAttribute("value", document.getElementById('bandnametext').value);
+            form.appendChild(bandname);
+     var capspec = document.createElement("input");
+            capspec.setAttribute("type", "hidden");
+            capspec.setAttribute("name", "capspec");
+            capspec.setAttribute("value", document.getElementById('capspecsel').value);
+            form.appendChild(capspec);
+     var capskill = document.createElement("input");
+            capskill.setAttribute("type", "hidden");
+            capskill.setAttribute("name", "capskill");
+            capskill.setAttribute("value", document.getElementById('skillchoice').value);
+            form.appendChild(capskill);
+     var capweap = document.createElement("input");
+            capweap.setAttribute("type", "hidden");
+            capweap.setAttribute("name", "capweap");
+            capweap.setAttribute("value", document.getElementById('capweapsel').value);
+            form.appendChild(capweap);
+     if (engHire)
+     {
+      var hasensign = document.createElement("input");
+            hasensign.setAttribute("type", "hidden");
+            hasensign.setAttribute("name", "hasensign");
+            hasensign.setAttribute("value", engHire);
+            form.appendChild(hasensign);
+      var ensspec = document.createElement("input");
+            ensspec.setAttribute("type", "hidden");
+            ensspec.setAttribute("name", "ensspec");
+            ensspec.setAttribute("value", document.getElementById('ensskillsel').value);
+            form.appendChild(ensspec);
+     var ensskill = document.createElement("input");
+            ensskill.setAttribute("type", "hidden");
+            ensskill.setAttribute("name", "ensskill");
+            ensskill.setAttribute("value", document.getElementById('skillchoiceens').value);
+            form.appendChild(ensskill);
+     var ensweap = document.createElement("input");
+            ensweap.setAttribute("type", "hidden");
+            ensweap.setAttribute("name", "ensweap");
+            ensweap.setAttribute("value", document.getElementById('ensweapsel').value);
+            form.appendChild(ensweap);
+       }
+
+     var troopsarr = []
+                                for(i = 1; i < 11; i++)
+                                {       
+                                        var selector = document.getElementById('troop'+i);
+                                        troopsarr.push(selector.value);
+                                }
+     var troops = document.createElement("input");
+            troops.setAttribute("type", "hidden");
+            troops.setAttribute("name", "troops");
+            troops.setAttribute("value", JSON.stringify(troopsarr));
+            form.appendChild(troops);
+
+
+    document.body.appendChild(form);
+    form.submit();
+   }
+
+/*   function doFormSubmit()
    {
      method =  "post"; // Set method to post by default if not specified.
 
@@ -321,7 +400,7 @@ table, th, td { border: 1px solid black; text-align: left; }
 
     document.body.appendChild(form);
     form.submit();
-   }
+   }*/
 </script>
 </head>
 <body>
