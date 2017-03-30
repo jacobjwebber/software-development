@@ -9,6 +9,7 @@ def form_to_band(requestform):
     """
        This function takes in a HTTP request and returns a band object.
        """
+    print(requestform)
     bandname = requestform['bandname']
     capspec = requestform['capspec']
     capskill = requestform['capskill']
