@@ -15,3 +15,6 @@ On Windows this will need to be done manually, running `pip install -r requireme
 For debugging it may be useful to set the environment variable `FLASK_DEBUG=1`.
 
 This project is open source an is released under the MIT license. See `LICENSE.txt`.
+
+To see status of builds on all branches go to:
+https://travis-ci.org/jacobjwebber/software-development/branches
